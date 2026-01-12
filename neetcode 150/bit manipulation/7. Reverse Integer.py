@@ -45,10 +45,28 @@ class Solution:
         else:
             return res
 
+class Solution2:
+    def reverse(self, x: int) -> int:
+        INT_MIN = -2 ** 31
+        INT_MAX = 2 ** 31 - 1
+        sign = -1 if x < 0 else 1
+        x = abs(x)
+        res = 0
+        while x:
+            pop = x % 10
+            x //= 10
+            if res > INT_MAX // 10 or (res == INT_MAX // 10 and pop > 7) or (res == INT_MAX // 10 and pop > 8 and sign == -1):
+                return 0
+            res = res * 10 + pop
+        return sign * res
+
 solution = Solution()
 print(solution.reverse(123)) # 321
 print(solution.reverse(-123)) # -321
 print(solution.reverse(120)) # 21
+
+solution = Solution2()
+print(solution.reverse(-7463847412)) # 321
 
 """
 Time Complexity: O(n), iterating n characters of list(str(abs(x)))

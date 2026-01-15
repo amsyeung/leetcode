@@ -61,7 +61,7 @@ class Solution:
 # Using two pointers
 class Solution2:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        nums = sorted(nums) # O(nlogn)
+        nums.sort()
         n = len(nums)
         res = []
         for i in range(n - 2):
@@ -76,9 +76,9 @@ class Solution2:
                     r -= 1
                 else:
                     res.append([nums[i], nums[l], nums[r]])
-                    while nums[l] == nums[l + 1] and l < r: # skip the second element duplicate
+                    while l < r and nums[l] == nums[l + 1]: # skip the second element duplicate
                        l += 1
-                    while nums[r] == nums[r - 1] and l < r: # skip the third element duplicate
+                    while l < r and nums[r] == nums[r - 1]: # skip the third element duplicate
                         r -= 1
                     l += 1
                     r -= 1      
@@ -90,5 +90,5 @@ print(solution2.threeSum([-1,0,1,2,-1,-4])) # [[-1,-1,2],[-1,0,1]]
 
 """
 Time Complexity: O(nlogn) for sorting + O(n^2), because n times with outer loop and inner two pointers loop n times
-Space Complexity: Python Timsort consumes O(logn) to O(n), so approximately O(logn) to O(n)
+Space Complexity: Python Timsort consumes O(n), so approximately O(n)
 """

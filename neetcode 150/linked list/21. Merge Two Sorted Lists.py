@@ -75,3 +75,8 @@ list2.next.next = ListNode(4)
 
 solution = Solution()
 print(solution.mergeTwoLists(list1, list2)) # [1, 1, 2, 3, 4, 4]
+
+"""
+Time Complexity: O(m + n) where (m, n) is total nodes of (list1, list2) respectively
+Space Complexity: O(1), dummy and cur pointer has constant memory usage
+"""

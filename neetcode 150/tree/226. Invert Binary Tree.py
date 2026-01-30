@@ -41,7 +41,7 @@ l = [4, 2, 7, 1, 3, 6, 9]
 root = TreeUtil.build_tree(l)
 
 solution = Solution()
-print(TreeUtil.print_tree(solution.invertTree(root)))
+TreeUtil.print_tree(solution.invertTree(root))
 
 """
 Time Complexity: O(n), visit every node, where n is the number of Nodes

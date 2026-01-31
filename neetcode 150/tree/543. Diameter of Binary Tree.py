@@ -34,16 +34,16 @@ class Solution:
         def dfs(node: Optional[TreeNode]) -> int:
             if not node:
                 return 0
-            left_height = dfs(root.left)
-            right_height = dfs(root.right)
+            left_height = dfs(node.left)
+            right_height = dfs(node.right)
             self.max_diameter = max(self.max_diameter, left_height + right_height)
             return 1 + max(left_height, right_height)
         dfs(root)
         return self.max_diameter
     
     
-# l = [1, 2, 3, 4, 5]
-# root = TreeUtil.build_tree(l)
+l = [1, 2, 3, 4, 5]
+root = TreeUtil.build_tree(l)
 # TreeUtil.print_tree(root)
-# solution = Solution()
-# print(solution.diameterOfBinaryTree(root)) # 3
+solution = Solution()
+print(solution.diameterOfBinaryTree(root)) # 3

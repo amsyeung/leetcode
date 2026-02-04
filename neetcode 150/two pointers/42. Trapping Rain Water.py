@@ -64,8 +64,40 @@ print(solution.trap([4,2,3])) # 1
 print(solution.trap([4,9,4,5,3,2])) # 1
 print(solution.trap([0,0,0])) # 0
 
+"""
+Time Complexity: O(n^2), 因為在 while l < n - 1: 這個loop裡 -> O(n), 都會執行 max(height[l+1:n]) -> O(n), consequently -> O(n^2)
+Space Complexity: O(1)
+"""
+
+class Solution2:
+    def trap(self, height: List[int]) -> int:
+        n = len(height)
+        l, r = 0, n - 1
+        l_max, r_max = 0, 0
+        res = 0
+        while l < r:
+            if height[l] < height[r]:
+                if height[l] > l_max:
+                    l_max = height[l]
+                else:
+                    res += l_max - height[l]
+                l += 1
+            else:
+                if height[r] > r_max:
+                    r_max = height[r]
+                else:
+                    res += r_max - height[r]
+                r -= 1
+        return res
+
+solution2 = Solution()
+print(solution2.trap([0,1,0,2,1,0,1,3,2,1,2,1])) # 6
+print(solution2.trap([4,2,0,3,2,5])) # 9
+print(solution2.trap([4,2,3])) # 1
+print(solution2.trap([4,9,4,5,3,2])) # 1
+print(solution2.trap([0,0,0])) # 0
 
 """
-Time Complexity: O(n^2)
-Space Complexity: O(1)
+Time Complexity: O(n), depends on the loop for while l < r
+Space Complexity: O(1), only constant variables
 """

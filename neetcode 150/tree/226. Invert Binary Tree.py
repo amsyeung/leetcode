@@ -25,7 +25,7 @@ Output: []
 """
 
 from typing import Optional
-from TreeUtil import TreeNode, TreeUtil
+from treeutil import TreeNode, TreeUtil
 
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:

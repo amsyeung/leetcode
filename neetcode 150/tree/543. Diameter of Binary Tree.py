@@ -25,7 +25,7 @@ Output: 1
 """
 
 from typing import Optional
-from TreeUtil import TreeUtil, TreeNode
+from treeutil import TreeUtil, TreeNode
 
 class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:

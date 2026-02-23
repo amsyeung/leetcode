@@ -28,7 +28,7 @@ Output: false
 """
 
 from typing import Optional
-from TreeUtil import TreeNode, TreeUtil
+from treeutil import TreeNode, TreeUtil
 
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:

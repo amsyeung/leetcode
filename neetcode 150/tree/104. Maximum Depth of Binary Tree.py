@@ -23,7 +23,7 @@ Output: 2
 """
 
 from typing import Optional
-from TreeUtil import TreeUtil, TreeNode
+from treeutil import TreeUtil, TreeNode
 
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]):

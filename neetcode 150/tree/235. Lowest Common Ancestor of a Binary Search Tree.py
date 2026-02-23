@@ -29,12 +29,32 @@ from treeutil import TreeNode, TreeUtil
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         while root:
-            if root.val < p.val and root.val < q.val:
+            if p.val < root.val and q.val < root.val:
                 root = root.left
-            elif root.val > p.val and root.val > q.val:
+            elif p.val > root.val and q.val > root.val:
                 root = root.right
             else:
                 return root
+   
+solution = Solution()
+l = [6,2,8,0,4,7,9,None,None,3,5]
+root = TreeUtil.build_tree(l)
+p = TreeNode(2)
+q = TreeNode(8)
+TreeUtil.print_tree(solution.lowestCommonAncestor(root, p, q))
+print("-" * 20)
+l = [6,2,8,0,4,7,9,None,None,3,5]
+root = TreeUtil.build_tree(l)
+p = TreeNode(2)
+q = TreeNode(4)
+TreeUtil.print_tree(solution.lowestCommonAncestor(root, p, q))
+print("-" * 20)
+l = [2,1]
+root = TreeUtil.build_tree(l)
+p = TreeNode(2)
+q = TreeNode(1)
+TreeUtil.print_tree(solution.lowestCommonAncestor(root, p, q))
+
             
 """
 Time Complexity: O(H), the worst case is that we must traverse the entire height to find the LCA

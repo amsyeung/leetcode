@@ -50,7 +50,7 @@ class Solution:
     def leastInterval(self, tasks: List[str], n: int) -> int:
         count = Counter(tasks)
         heap = [cnt for cnt in count.values()]
-        heapq.heapify(heap)
+        heapq.heapify_max(heap)
         q = deque()
         time = 0
         while heap or q:

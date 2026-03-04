@@ -46,11 +46,10 @@ class KthLargest:
         self.nums = heap
         
     def add(self, val: int) -> int:
-        if len(self.nums) == self.k and val < self.nums[0]:
-            return self.nums[0]
-        heapq.heappush(self.nums, val)
-        if len(self.nums) > self.k:
-            heapq.heappop(self.nums)
+        if len(self.nums) < self.k:
+            heapq.heappush(self.nums, val)
+        elif val > self.nums[0]:
+            heapq.heapreplace(self.nums, val)
         return self.nums[0]
     
 obj = KthLargest(3, [4, 5, 8, 2])

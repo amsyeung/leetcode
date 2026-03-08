@@ -64,11 +64,29 @@ class Solution:
         if arr:
             return False
         return True
+    
+class Solution2:
+    def isValid(self, s: str) -> bool:
+        d = { ")": "(", "}": "{", "]": "[" }
+        stack = []
+        for c in s:
+            if c in d:
+                top_element = stack.pop() if stack else "#"
+                if d[c] != top_element:
+                    return False
+            else:
+                stack.append(c)
+        return not stack
+                
+solution = Solution2()
+print(solution.isValid("()")) # True
+print(solution.isValid("()[]{}")) # True
+print(solution.isValid("(]")) # False
+print(solution.isValid("([])")) # True
+print(solution.isValid("([)]")) # False
+print(solution.isValid("((")) # False
 
-solution = Solution()
-print(solution.isValid("()")) # true
-print(solution.isValid("()[]{}")) # true
-print(solution.isValid("(]")) # false
-print(solution.isValid("([])")) # true
-print(solution.isValid("([)]")) # false
-print(solution.isValid("((")) # false
+"""
+Time Complexity: O(n), where n is len(s)
+Space Complexity: O(n) when no match, the stack will store every single character from the string
+"""

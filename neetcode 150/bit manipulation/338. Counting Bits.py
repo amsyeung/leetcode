@@ -33,14 +33,37 @@ Explanation:
 
 from typing import List
 
-class Solution:
+class Solution: # Time: O(N * K) where K is the length of bits, Space: O(K), where every iteration creates temporary segment of array (slice)
     def countBits(self, n: int) -> List[int]:
         l = []
         for i in range(n + 1):
             l.append(list(f"{i:b}").count("1"))
         return l
     
-solution = Solution()
+class Solution2: # Time: O(n log n), Space: O(1)
+    def countBits(self, n: int) -> List[int]:
+        l = []
+        for i in range(n + 1):
+            t = i
+            c = 0
+            while t:
+                c += t & 1
+                t >>= 1
+            l.append(c)
+        return l
+    
+class Solution3: # Time: O(n), Space: O(1)
+    def countBits(self, n: int) -> List[int]:
+        l = [0] * (n + 1)
+        for i in range(n + 1):
+            if i % 2 == 0:
+                l[i] = l[i >> 1]
+            else:
+                l[i] = l[i >> 1] + 1
+        return l
+            
+    
+solution = Solution3()
 print(solution.countBits(5)) # [0,1,1,2,1,2]
 
 """

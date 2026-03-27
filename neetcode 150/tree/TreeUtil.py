@@ -1,4 +1,5 @@
 from typing import Optional, List
+from collections import deque
 
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -12,18 +13,25 @@ class TreeNode:
 class TreeUtil:
     @staticmethod
     def build_tree(nodes: List[int]) -> Optional[TreeNode]:
-        if not nodes:
-            return None
-        iter_nodes = [TreeNode(val) if val is not None else None for val in nodes]
-        for i in range(len(iter_nodes)):
-            if iter_nodes[i] is not None:
-                left_idx = 2 * i + 1
-                right_idx = 2 * i + 2
-                if left_idx < len(iter_nodes):
-                    iter_nodes[i].left = iter_nodes[left_idx]
-                if right_idx < len(iter_nodes):
-                    iter_nodes[i].right = iter_nodes[right_idx]
-        return iter_nodes[0] # return head
+        if not nodes: return None
+        root = TreeNode(nodes[0])
+        queue = deque([root]) 
+        i = 1 
+        while queue and i < len(nodes):
+            current = queue.popleft()
+            # handle left child
+            if i < len(nodes):
+                if nodes[i] is not None:
+                    current.left = TreeNode(nodes[i])
+                    queue.append(current.left)
+                i += 1
+            # handle right child
+            if i < len(nodes):
+                if nodes[i] is not None:
+                    current.right = TreeNode(nodes[i])
+                    queue.append(current.right)
+                i += 1
+        return root
 
     @staticmethod
     def print_tree(node, level=0):

@@ -25,7 +25,7 @@ Output: true
 """
 
 from typing import Optional
-from TreeUtil import TreeNode, TreeUtil
+from treeutil import TreeNode, TreeUtil
 
 class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:

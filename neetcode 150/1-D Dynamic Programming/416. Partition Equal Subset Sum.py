@@ -32,6 +32,7 @@ class Solution:
         for num in nums:
             for i in range(target, num - 1, -1):
                 dp[i] = dp[i] or dp[i - num]
+            if dp[target] == True: return True
         return dp[target]
     
 solution = Solution()

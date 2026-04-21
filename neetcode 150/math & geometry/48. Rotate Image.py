@@ -24,7 +24,7 @@ Output: [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]
 
 from typing import List
 
-class Solution:
+class Solution: # Time: O(n^2), Space: O(1)
     def rotate(self, matrix: List[List[int]]) -> None:
         n = len(matrix)
         for i in range(n):

@@ -25,7 +25,7 @@ Output: [1]
 """
 
 from typing import Optional
-from util import ListNode, print_list
+from listutil import ListNode, print_list
 
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:

@@ -33,7 +33,7 @@ Output: false
 Explanation: There is no cycle in the linked list.
 """
 
-from util import ListNode
+from listutil import ListNode
 from typing import Optional
 
 class Solution:

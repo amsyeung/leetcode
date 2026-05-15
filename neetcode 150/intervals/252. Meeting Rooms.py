@@ -25,11 +25,7 @@ Output: true
 """
 
 from typing import List
-
-class Interval:
-    def __init__(self, start, end):
-        self.start = start
-        self.end = end
+from intervalutil import Interval
 
 class Solution:
     def canAttendMeetings(self, intervals: List[Interval]) -> bool:

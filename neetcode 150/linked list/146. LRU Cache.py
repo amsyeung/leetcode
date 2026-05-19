@@ -68,6 +68,9 @@ class LRUCache:
         self.tail.prev = node
 
     def _move_to_tail(self, node: ListNode) -> None:
+        # small performance improvement, skip this step if the node is already the last node
+        if node.next == self.tail:
+            return
         self._remove_node(node)
         self._add_to_tail(node)
 

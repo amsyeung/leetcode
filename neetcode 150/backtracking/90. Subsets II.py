@@ -39,3 +39,12 @@ class Solution:
     
 s = Solution()
 print(s.subsetsWithDup([1, 2, 2])) # [[],[1],[1,2],[1,2,2],[2],[2,2]]
+
+"""
+Intuition:
+i > start ensures we skip duplicates at the same decision level.
+We only allow unique numbers in the same level to avoid duplicate subsets.
+
+Time: O(2^N)
+Space: O(N)
+"""

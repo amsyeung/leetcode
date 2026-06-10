@@ -54,7 +54,7 @@ print(s.letterCombinations("23")) # ["ad","ae","af","bd","be","bf","cd","ce","cf
 
 """
 Intuition:
-`idx` tracks which digit we are processing, and then concatenate strings util reach len(digits)
+`idx` tracks which digit we are processing. We concatenate letters to build combinations until the string length equals len(digits).
 
 Time: 
 O(3^m * 4^n)

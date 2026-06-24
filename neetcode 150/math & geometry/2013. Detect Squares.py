@@ -43,7 +43,7 @@ class DetectSquares:
     def count(self, point: List[int]) -> int:
         x, y = point
         res = 0
-        for (qx, qy), cnt_q in self.point_cnt.items():
+        for (qx, qy), cnt_q in list(self.point_cnt.items()):
             dx = abs(qx - x)
             dy = abs(qy - y)
             if dx != dy or dx == 0:
